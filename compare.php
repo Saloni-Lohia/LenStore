@@ -22,7 +22,12 @@ $pro2 = mysqli_fetch_object($pro2_query);
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<script src="js/jquery2.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="main.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+
 	<script src="main.js"></script>
 
     <title>Compare Product</title>
@@ -34,19 +39,75 @@ $pro2 = mysqli_fetch_object($pro2_query);
     </style>
   </head>
   <body>
+  <div class="wait overlay">
+	<div class="loader"></div>
+</div>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">	
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+					<span class="sr-only">navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">LenStore</a>
+			</div>
+		<div class="collapse navbar-collapse" id="collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+				<li><a href="compare_index.php"><span class="glyphicon glyphicon-stats"></span>Compare</a></li>
+                                
+			</ul>
+			<form class="navbar-form navbar-left">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search" id="search">
+		        </div>
+		        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
+		     </form>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="register.php" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
+					<div class="dropdown-menu" style="width:400px;">
+						<div class="panel panel-success">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-md-3">Sl.No</div>
+									<div class="col-md-3">Product Image</div>
+									<div class="col-md-3">Product Name</div>
+									<div class="col-md-3">Price in ₹.</div>
+								</div>
+							</div>
+								
+							<div class="panel-body">
+								<div id="cart_product">
+								<!--<div class="row">
+									<div class="col-md-3">Sl.No</div>
+									<div class="col-md-3">Product Image</div>
+									<div class="col-md-3">Product Name</div>
+									<div class="col-md-3">Price in ₹.</div>
+								</div>-->
+								</div>
+							</div>
+							<div class="panel-footer"></div>
+						</div>
+					</div>                  
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>	
+	<p><br/></p>
+	<p><br/></p>
+	<p><br/></p>
   	<div class="container">
   		<div class="row">
-  			<div class="col-sm-6" style="margin-top: 30px;">
-  				<h2>Compare Product List</h2>
+  			<div class="col-sm-6" style="margin-top: 10px;">
   			</div>
-        <div class="col-sm-6" style="margin-top: 30px;">
-          <a href="compare_index.php" style="text-align: right;"><h2>Back</h2></a>
-        </div>	
   		</div>
 
-  		<div class="row" style="margin-top: 50px;">
+  		<div class="row" style="margin-top: 10px;">
   			
-  			<div class="col-sm-6" style="margin-bottom: 30px; padding: 5px;">
+  			<div class="col-sm-6" style="margin-bottom: 10px; padding: 5px;">
           <div class="card">
             <h3 style="text-align: center; background: #ccc; width: 100%; padding: 10px;">Product One</h3>
   		    
@@ -71,7 +132,6 @@ $pro2 = mysqli_fetch_object($pro2_query);
           <div class="card">
             <h3 style="text-align: center; background: #ccc; width: 100%; padding: 10px;">Product Two</h3>
 			       
-			
 			<?php
 			$p2=$pro2->product_image;
             echo 

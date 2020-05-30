@@ -50,7 +50,6 @@ session_start();
 		<div class="collapse navbar-collapse" id="collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-				<li><a href="index.php"><span class="dropbtn"></span>Product</a></li>
                                 
 			</ul>
 			<form class="navbar-form navbar-left">
@@ -86,33 +85,18 @@ session_start();
 						</div>
 					</div>                  
 				</li>
-                                                                
-				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>SignIn</a>
-					<ul class="dropdown-menu">
-						<div style="width:300px;">
-							<div class="panel panel-primary">
-								<div class="panel-heading">Login</div>
-								<div class="panel-heading">
-									<form onsubmit="return false" id="login">
-										<label for="email">Email</label>
-										<input type="email" class="form-control" name="email" id="email" required/>
-										<label for="email">Password</label>
-										<input type="password" class="form-control" name="password" id="password" required/>
-										<p><br/></p>
-                                                                                
-                                                                                <a href="#" style="color:white; list-style:none;">Forgotten Password</a><input type="submit" class="btn btn-success" style="float:right;">
-                                                                 <br>
-                                                                                 <!--If user dont have an account then he/she will click on create account button-->
-							<a href="customer_registration.php?register=1" style="color:white">Create a new account?</a>      
-									</form>
-
-                                                               	
-								</div>
-								<div class="panel-footer" id="e_msg"></div>
-							</div>
-						</div>
-					</ul>
 				</li>
+				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo "Hi,".$_SESSION["name"]; ?></a>
+					<ul class="dropdown-menu">
+						<li><a href="cart.php" style="text-decoration:none; color:blue;"><span class="glyphicon glyphicon-shopping-cart">Cart</a></li>
+						<li class="divider"></li>
+						<li><a href="customer_order.php" style="text-decoration:none; color:blue;">Orders</a></li>
+						<li class="divider"></li>
+						<li><a href="" style="text-decoration:none; color:blue;">Change Password</a></li>
+						<li class="divider"></li>
+						<li><a href="logout.php" style="text-decoration:none; color:blue;">Logout</a></li>
+					</ul>
+				</li>                                               
 			</ul>
 		</div>
 	</div>
@@ -122,22 +106,18 @@ session_start();
 	<p><br/></p>
   	<div class="container">
   		<div class="row">
-  			<div class="col-sm-12" style="margin-top: 50px;">
-  				<h2 style="text-align: center;">Compare Products</h2>
+  			<div class="col-sm-12" style="margin-top: 10px;">
   			</div>
   		</div>
 
       <div class="row" id="btn_compare" style="display:none;">
-        <div class="col-sm-12" style="margin-top: 50px;">
+        <div class="col-sm-12" style="margin-top: 10px;">
           <form action="compare.php" method="post">
                <input type="hidden" value="" id="card_one" name="card_one"/>
                <input type="hidden" value="" id="card_two" name="card_two"/>
                <input type="submit" value="Compare Product" class="btn btn-success" style="float:right;"/>
            </form>
         </div>
-      </div>
-      <div class="col-sm-12" style="margin-top: 15px;">
-          <a href="index.php" style="text-align: right;"><h2>Back</h2></a>
       </div>
   		<div class="row" style="margin-top: 50px;">
   			<?php
